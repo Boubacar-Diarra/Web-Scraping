@@ -1,0 +1,38 @@
+{
+    "name": "Web-Scraping",
+    "description":"Projet de web scraping, visant a extraire les données d'un profit linkedin",
+    "version":"1.0.0",
+    "browser_action":{
+        "default_popup":"index.html"
+    },
+    "background":{
+        "scripts": ["background.js"],
+        "persistent":true
+    },
+    "icons": {
+        "16" : "icon.png",
+        "48" : "icon.png",
+        "128" : "icon.png"
+    }
+    ,
+    "permissions" : [
+        "webRequest",
+        "https://localhost:44388/api/profit",
+        "https://www.linkedin.com/in/soukainachaoui1/",
+        "webNavigation"
+    ],
+    "web_accessible_resources": [
+        "node_modules/mongodb/*"
+    ],
+    "content_scripts":[
+        {
+            "matches": [
+                "https://localhost:5001/api/person",
+                "https://www.linkedin.com/*"
+            ],
+            "js" : ["content_script.js"]
+        }
+    ]
+    ,
+    "manifest_version":2
+}
