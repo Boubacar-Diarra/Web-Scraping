@@ -28,6 +28,7 @@
         {
             "matches": [
                 "https://localhost:5001/api/person",
+                "http://35.180.205.3/api/person",
                 "https://www.linkedin.com/*"
             ],
             "js" : ["content_script.js"]

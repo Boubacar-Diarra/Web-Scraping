@@ -5,10 +5,11 @@ window.onload = () => {
     document.getElementById('extraire').onclick = () =>{
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {order: "extraire"}, function(response) {
-                axios.post("https://localhost:5001/api/person", JSON.parse(response.farewell)).then(res =>{
+                axios.post("http://35.180.205.3/api/person", JSON.parse(response.farewell)
+                ).then(res =>{
                     alert("OK")
                 }).catch(rea => {
-                    alert("Probleme")
+                    alert("Un Problème est survenue !")
                 })
                 alert(response.farewell)
             });
